@@ -1,0 +1,177 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Professional Resume Generator Design System */
+
+@layer base {
+  :root {
+    /* Core Brand Colors - Professional Blue/Purple Theme */
+    --background: 0 0% 100%;
+    --foreground: 230 15% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 230 15% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 230 15% 15%;
+
+    /* Primary Brand - Purple/Blue Gradient */
+    --primary: 250 84% 54%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 250 84% 48%;
+    --primary-light: 250 84% 90%;
+
+    /* Secondary - Professional Gray */
+    --secondary: 240 5% 96%;
+    --secondary-foreground: 230 15% 25%;
+
+    /* Muted - Subtle Backgrounds */
+    --muted: 240 5% 96%;
+    --muted-foreground: 240 4% 46%;
+
+    /* Accent - Success Green */
+    --accent: 142 71% 45%;
+    --accent-foreground: 0 0% 100%;
+    --accent-light: 142 71% 90%;
+
+    /* Status Colors */
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 100%;
+    --warning: 45 93% 58%;
+    --warning-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* UI Elements */
+    --border: 240 6% 90%;
+    --input: 240 6% 94%;
+    --ring: 250 84% 54%;
+
+    /* Custom Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(250 84% 54%), hsl(280 84% 64%));
+    --gradient-secondary: linear-gradient(135deg, hsl(240 5% 96%), hsl(240 5% 98%));
+    --gradient-hero: linear-gradient(135deg, hsl(250 84% 54%) 0%, hsl(280 84% 64%) 50%, hsl(310 84% 74%) 100%);
+    
+    /* Shadows */
+    --shadow-soft: 0 2px 8px -2px hsl(240 6% 90% / 0.8);
+    --shadow-medium: 0 4px 16px -4px hsl(240 6% 80% / 0.6);
+    --shadow-large: 0 8px 32px -8px hsl(240 6% 70% / 0.4);
+    --shadow-glow: 0 0 40px hsl(250 84% 54% / 0.3);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 230 25% 8%;
+    --foreground: 240 5% 96%;
+
+    --card: 230 25% 10%;
+    --card-foreground: 240 5% 96%;
+
+    --popover: 230 25% 10%;
+    --popover-foreground: 240 5% 96%;
+
+    --primary: 250 84% 64%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 250 84% 58%;
+
+    --secondary: 230 15% 15%;
+    --secondary-foreground: 240 5% 90%;
+
+    --muted: 230 15% 15%;
+    --muted-foreground: 240 4% 60%;
+
+    --accent: 142 71% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --border: 230 15% 20%;
+    --input: 230 15% 18%;
+    --ring: 250 84% 64%;
+
+    --gradient-primary: linear-gradient(135deg, hsl(250 84% 64%), hsl(280 84% 74%));
+    --gradient-hero: linear-gradient(135deg, hsl(250 84% 64%) 0%, hsl(280 84% 74%) 50%, hsl(310 84% 84%) 100%);
+    --shadow-glow: 0 0 40px hsl(250 84% 64% / 0.4);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    scroll-behavior: smooth;
+  }
+
+  html {
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+}
+
+@layer components {
+  /* Gradient Backgrounds */
+  .bg-gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .bg-gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  /* Custom Shadows */
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .shadow-medium {
+    box-shadow: var(--shadow-medium);
+  }
+
+  .shadow-large {
+    box-shadow: var(--shadow-large);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  /* Smooth Transitions */
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+
+  .transition-bounce {
+    transition: var(--transition-bounce);
+  }
+
+  /* Upload Zone Styles */
+  .upload-zone {
+    @apply border-2 border-dashed border-border rounded-xl p-8 text-center transition-smooth;
+    @apply hover:border-primary hover:bg-primary-light/50;
+  }
+
+  .upload-zone.drag-over {
+    @apply border-primary bg-primary-light/70 scale-105;
+  }
+
+  /* Glassmorphism Effect */
+  .glass {
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  /* Animated Gradient Text */
+  .gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
